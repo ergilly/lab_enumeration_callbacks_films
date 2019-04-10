@@ -28,24 +28,36 @@ describe('Cinema', () => {
 
   xtest('should be able to get a list of film titles', () => {
     // write your code here
+    expect(cinema.listTitles()).toEqual(['Moonlight', 'Blade Runner 2049', 'Dunkirk', 'Black Panther', 'T2 Trainspotting'])
   });
   xtest('should be able to find a film by title', () => {
     // write your code here
+    expect(cinema.findFilmByTitle('Dunkirk')).toEqual({'Dunkirk', 'history', 2017, 96});
   });
   xtest('should be able to filter films by genre', () => {
     // write your code here
+    expect(cinema.findFilmsByGenre(drama).length).toBe(2);
   });
   xtest('should be able to check whether there are some films from a particular year', () => {
     // write your code here
+    expect(cinema.findFilmsByYear(2017).length).toBe(3);
   });
   xtest('should be able to check whether there are no films from a particular year', () => {
     // write your code here
+    expect(cinema.findFilmsByYear(2014).length).toBe(0);
   });
   xtest('should be able to check whether all films are over a particular length', () => {
     // write your code here
+    expect(cinema.overMaxLength(120).length).toBe(2);
   });
   xtest('should be able to calculate total running time of all films', () => {
     // write your code here
+    expect(cinema.totalRuntime()).toBe(622);
+  });
+  xtest('should be able to filter films by property' () => {
+    expect(cinema.findFilmByProperty('genre', 'drama').length).toBe(2);
+    expect(cinema.findFilmByProperty('year', 2017).length).toBe(3);
+
   });
 
 });
